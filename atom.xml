@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-22T03:15:52.000Z</updated>
+  <updated>2016-12-23T07:50:08.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,40 +16,134 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hello hexo</title>
-    <link href="http://yoursite.com/2016/12/22/hello-hexo/"/>
-    <id>http://yoursite.com/2016/12/22/hello-hexo/</id>
-    <published>2016-12-22T03:15:52.000Z</published>
-    <updated>2016-12-22T03:15:52.000Z</updated>
+    <title>Android 6.0 以后的权限申请</title>
+    <link href="http://yoursite.com/2016/12/23/Android-6-0-%E4%BB%A5%E5%90%8E%E7%9A%84%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7/"/>
+    <id>http://yoursite.com/2016/12/23/Android-6-0-以后的权限申请/</id>
+    <published>2016-12-23T07:49:14.000Z</published>
+    <updated>2016-12-23T07:50:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Android-权限分类"><a href="#Android-权限分类" class="headerlink" title="Android 权限分类"></a>Android 权限分类</h2><ul>
+<li>Normal Permissions</li>
+</ul>
+<p>不涉及用户隐私的权限，不需要用户授权，在 AndroidManifest 文件中注册即可使用</p>
+<ul>
+<li>Dangerous Permission</li>
+</ul>
+<p>涉及用户隐私的权限，需要用户授权才可以使用</p>
+<h2 id="权限列表"><a href="#权限列表" class="headerlink" title="权限列表"></a>权限列表</h2><ul>
+<li>Normal Permissions</li>
+<li>ACCESS_LOCATION_EXTRA_COMMANDS</li>
+<li>ACCESS_NETWORK_STATE</li>
+<li>ACCESS_NOTIFICATION_POLICY</li>
+<li>ACCESS_WIFI_STATE</li>
+<li>BLUETOOTH</li>
+<li>BLUETOOTH_ADMIN</li>
+<li>BROADCAST_STICKY</li>
+<li>CHANGE_NETWORK_STATE</li>
+<li>CHANGE_WIFI_MULTICAST_STATE</li>
+<li>CHANGE_WIFI_STATE</li>
+<li>DISABLE_KEYGUARD</li>
+<li>EXPAND_STATUS_BAR</li>
+<li>GET_PACKAGE_SIZE</li>
+<li>INSTALL_SHORTCUT</li>
+<li>INTERNET</li>
+<li>KILL_BACKGROUND_PROCESSES</li>
+<li>MODIFY_AUDIO_SETTINGS</li>
+<li>NFC</li>
+<li>READ_SYNC_SETTINGS</li>
+<li>READ_SYNC_STATS</li>
+<li>RECEIVE_BOOT_COMPLETED</li>
+<li>REORDER_TASKS</li>
+<li>REQUEST_INSTALL_PACKAGES</li>
+<li>SET_ALARM</li>
+<li>SET_TIME_ZONE</li>
+<li>SET_WALLPAPER</li>
+<li>SET_WALLPAPER_HINTS</li>
+<li>TRANSMIT_IR</li>
+<li>UNINSTALL_SHORTCUT</li>
+<li>USE_FINGERPRINT</li>
+<li>VIBRATE</li>
+<li>WAKE_LOCK</li>
+<li>WRITE_SYNC_SETTINGS</li>
+</ul>
+<blockquote>
+<p>Dangerous Permissions 权限是按组分类的。如果用户授权了某一权限，则该权限所在的权限组的所有权限会被授权，该组的其他权限无需再申请即可使用。</p>
+</blockquote>
+<ul>
+<li>Dangerous Permissions<ul>
+<li>group:android.permission-group.CONTACTS</li>
+</ul>
+</li>
+<li>WRITE_CONTACTS</li>
+<li>GET_ACCOUNTS</li>
+<li><p>READ_CONTACTS</p>
+<ul>
+<li>group:android.permission-group.PHONE</li>
+</ul>
+</li>
+<li>READ_CALL_LOG</li>
+<li>READ_PHONE_STATE</li>
+<li>CALL_PHONE</li>
+<li>WRITE_CALL_LOG</li>
+<li>USE_SIP</li>
+<li>PROCESS_OUTGOING_CALLS</li>
+<li><p>ADD_VOICEMAIL</p>
+<ul>
+<li>group:android.permission-group.CALENDAR</li>
+</ul>
+</li>
+<li>READ_CALENDAR</li>
+<li><p>WRITE_CALENDAR</p>
+<ul>
+<li><p>group:android.permission-group.CAMERA</p>
+<ul>
+<li>CAMERA</li>
+</ul>
+</li>
+<li><p>group:android.permission-group.SENSORS</p>
+<ul>
+<li>BODY_SENSORS</li>
+</ul>
+</li>
+<li><p>group:android.permission-group.LOCATION</p>
+</li>
+</ul>
+</li>
+<li>ACCESS_FINE_LOCATION</li>
+<li><p>ACCESS_COARSE_LOCATION</p>
+<ul>
+<li>group:android.permission-group.STORAGE</li>
+</ul>
+</li>
+<li>READ_EXTERNAL_STORAGE</li>
+<li><p>WRITE_EXTERNAL_STORAGE</p>
+<ul>
+<li>group:android.permission-group.MICROPHONE</li>
+</ul>
+</li>
+<li><p>RECORD_AUDIO</p>
+<ul>
+<li>group:android.permission-group.SMS</li>
+</ul>
+</li>
+<li>READ_SMS</li>
+<li>RECEIVE_WAP_PUSH</li>
+<li>RECEIVE_MMS</li>
+<li>RECEIVE_SMS</li>
+<li>SEND_SMS</li>
+<li>READ_CELL_BROADCASTS</li>
+</ul>
+<h2 id="动态权限申请"><a href="#动态权限申请" class="headerlink" title="动态权限申请"></a>动态权限申请</h2><h3 id="检查权限"><a href="#检查权限" class="headerlink" title="检查权限"></a>检查权限</h3><p>注册权限前需要先检测应用是否已经拥有该权限。<br><code>ContextCompat.checkSelfPermission</code>，主要用于检测某个权限是否已经被授予，方法返回值为<code>PackageManager.PERMISSION_DENIED</code>或者<code>PackageManager.PERMISSION_GRANTED</code>。当返回<code>DENIED</code>就需要进行申请授权了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if (ContextCompat.checkSelfPermission(Context,</div><div class="line">               Manifest.permission.权限名称)</div><div class="line">       != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">&#125;else&#123;</div><div class="line">   //</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="申请权限"><a href="#申请权限" class="headerlink" title="申请权限"></a>申请权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ActivityCompat.requestPermissions(Context,</div><div class="line">               new String[]&#123;Manifest.permission.权限名称&#125;,</div><div class="line">               CODE_PERMISSIONS_REQUEST);</div></pre></td></tr></table></figure>
+<p>该方法是异步的，第一个参数是Context；第二个参数是需要申请的权限的字符串数组；第三个参数为requestCode，主要用于回调的时候检测权限是否授权。可以从方法名requestPermissions以及第二个参数看出，是支持一次性申请多个权限的，系统会通过对话框逐一询问用户是否授权。</p>
+<h3 id="权限申请的回调"><a href="#权限申请的回调" class="headerlink" title="权限申请的回调"></a>权限申请的回调</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) &#123;</div><div class="line">    switch (requestCode) &#123;</div><div class="line">        case CODE_PERMISSIONS_REQUEST:</div><div class="line">            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line"></div><div class="line">                //权限获取成功</div><div class="line">                break;</div><div class="line"></div><div class="line">            &#125; else &#123;</div><div class="line"></div><div class="line">                //权限获取失败</div><div class="line"></div><div class="line">            &#125;</div><div class="line">            break;</div><div class="line">        default:</div><div class="line">            super.onRequestPermissionsResult(requestCode, permissions, grantResults);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2016/12/22/hello-world/"/>
-    <id>http://yoursite.com/2016/12/22/hello-world/</id>
-    <published>2016-12-22T02:57:58.000Z</published>
-    <updated>2016-12-22T03:25:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;h2 id=&quot;Android-权限分类&quot;&gt;&lt;a href=&quot;#Android-权限分类&quot; class=&quot;headerlink&quot; title=&quot;Android 权限分类&quot;&gt;&lt;/a&gt;Android 权限分类&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Normal Permissions&lt;/li&gt;
+
     
     </summary>
     
